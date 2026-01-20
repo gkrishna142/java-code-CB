@@ -20,20 +20,14 @@
         
     </properties>
 
-    <!--
-       <distributionManagement>
-
-      <snapshotRepository>
-        <id>bcr-b78am</id>
-          <url>https://bcr-420815905200.d.codeartifact.us-east-1.amazonaws.com/maven/b78am/</url>
-          </snapshotRepository>
-
-  <repository>
+    <!-- 
+    <distributionManagement>
+  <snapshotRepository>
     <id>bcr-b78am</id>
     <url>https://bcr-420815905200.d.codeartifact.us-east-1.amazonaws.com/maven/b78am/</url>
-  </repository>
-
+  </snapshotRepository>
 </distributionManagement>
+
 
     -->
     <distributionManagement>
