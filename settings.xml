@@ -12,12 +12,4 @@
     </server>
   </servers>
 
-  <mirrors>
-    <mirror>
-      <id>codeartifact</id>
-      <mirrorOf>*</mirrorOf>
-      <url>https://bcr-420815905200.d.codeartifact.us-east-1.amazonaws.com/maven/b78am/</url>
-    </mirror>
-  </mirrors>
-
 </settings>
