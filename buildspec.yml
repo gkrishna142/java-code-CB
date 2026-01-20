@@ -7,25 +7,33 @@ phases:
     commands:
       - echo "Installing dependencies"
 
-pre_build:
-  commands:
-    - echo "Checking AWS identity"
-    - aws sts get-caller-identity
+  pre_build:
+    commands:
+      - echo "Checking AWS identity"
+      - aws sts get-caller-identity
 
-    - echo "Generating CodeArtifact token"
-    - export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
-        --domain bcr \
-        --domain-owner 420815905200 \
-        --region us-east-1 \
-        --query authorizationToken \
-        --output text)
+      - echo "Generating CodeArtifact token"
+      - export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
+          --domain bcr \
+          --domain-owner 420815905200 \
+          --region us-east-1 \
+          --query authorizationToken \
+          --output text)
 
-    - echo "Token length:"
-    - echo $CODEARTIFACT_AUTH_TOKEN | wc -c
+      - echo "Token length:"
+      - echo $CODEARTIFACT_AUTH_TOKEN | wc -c
+
+      - mkdir -p ~/.m2
+      - cp settings.xml ~/.m2/settings.xml
 
   build:
     commands:
-      - mvn clean deploy
+      - echo "Build started on $(date)"
+      - mvn clean deploy -s ~/.m2/settings.xml
+
+  post_build:
+    commands:
+      - echo "Build completed on $(date)"
 
 artifacts:
   files:
