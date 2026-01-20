@@ -21,18 +21,20 @@
     </properties>
 
     <!--
-    <distributionManagement>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>a0bdlik6tnfce-artifactory-primary-0-snapshots</name>
-        <url>https://devopskesav.jfrog.io/artifactory/libs-snapshot</url>
-    </snapshotRepository>
-    <repository>
-        <id>releases</id>
-        <name>a0bdlik6tnfce-artifactory-primary-0-releases</name>
-        <url>https://devopskesav.jfrog.io/artifactory/libs-releases</url>
-    </repository>	
+       <distributionManagement>
+
+      <snapshotRepository>
+        <id>bcr-b78am</id>
+          <url>https://bcr-420815905200.d.codeartifact.us-east-1.amazonaws.com/maven/b78am/</url>
+          </snapshotRepository>
+
+  <repository>
+    <id>bcr-b78am</id>
+    <url>https://bcr-420815905200.d.codeartifact.us-east-1.amazonaws.com/maven/b78am/</url>
+  </repository>
+
 </distributionManagement>
+
     -->
     
 <distributionManagement>
