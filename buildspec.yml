@@ -7,17 +7,21 @@ phases:
     commands:
       - echo "Installing dependencies"
 
-  pre_build:
-    commands:
-      - echo "Generating CodeArtifact token"
-      - export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
-          --domain bcr \
-          --domain-owner 420815905200 \
-          --region us-east-1 \
-          --query authorizationToken \
-          --output text)
+pre_build:
+  commands:
+    - echo "Checking AWS identity"
+    - aws sts get-caller-identity
 
-      - echo "Token generated"
+    - echo "Generating CodeArtifact token"
+    - export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
+        --domain bcr \
+        --domain-owner 420815905200 \
+        --region us-east-1 \
+        --query authorizationToken \
+        --output text)
+
+    - echo "Token length:"
+    - echo $CODEARTIFACT_AUTH_TOKEN | wc -c
 
   build:
     commands:
